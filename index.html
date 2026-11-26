@@ -318,21 +318,12 @@
         .card-title {
             font-size: 1.12rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.25rem;
             color: var(--text-main);
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-        }
-
-        .card-meta {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .card-actions {
@@ -659,7 +650,7 @@
                                 <option value="EMI - Truyền thông">EMI - Truyền thông</option>
                                 <option value="EMI - Từ vựng học thuật">EMI - Từ vựng học thuật</option>
                                 <option value="EMI - Tài liệu song ngữ">EMI - Tài liệu song ngữ</option>
-                                <option value="EMI - Video bài giảng ngắn">EMI - Video bài giảng ngắn</option>
+                                <option value="EMI - Video bài giảng">EMI - Video bài giảng</option>
                                 <option value="EMI - Phiếu hướng dẫn & Mẫu câu">EMI - Phiếu hướng dẫn & Mẫu câu</option>
                                 <option value="EMI - Thảo luận & Mini-talk">EMI - Thảo luận & Mini-talk</option>
                                 <option value="EMI - CLB & Ngày hội">EMI - CLB & Ngày hội</option>
@@ -1109,7 +1100,6 @@
             const tenBai = doc['tenbai'] || 'Tài liệu không tiêu đề';
             const fileUrl = doc['fileurl'] || '#';
             const ext = getFileExtension(fileUrl);
-            const dateStr = doc.created_at ? new Date(doc.created_at).toLocaleDateString('vi-VN') : 'Mới cập nhật';
             const isSaved = Boolean(currentUser?.username) && savedIds.includes(doc.id);
 
             return `
@@ -1125,9 +1115,6 @@
                             </button>
                         </div>
                         <h3 class="card-title" title="${escapeHTML(tenBai)}">${escapeHTML(tenBai)}</h3>
-                        <div class="card-meta">
-                            <i class="fa-regular fa-calendar"></i> Ngày đăng: ${dateStr}
-                        </div>
                     </div>
                     <div class="card-actions">
                         <button class="btn btn-outline" onclick="openPreviewModal('${escapeHTML(tenBai)}', '${escapeHTML(fileUrl)}', '${escapeHTML(ext)}')">
@@ -1179,7 +1166,7 @@
                 'EMI - Truyền thông',
                 'EMI - Từ vựng học thuật',
                 'EMI - Tài liệu song ngữ',
-                'EMI - Video bài giảng ngắn',
+                'EMI - Video bài giảng',
                 'EMI - Phiếu hướng dẫn & Mẫu câu',
                 'EMI - Thảo luận & Mini-talk',
                 'EMI - CLB & Ngày hội',
